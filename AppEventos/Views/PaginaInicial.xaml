@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Views.PaginaInicial"
+             Title="Cadastro Eventos"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="DarkBlue">
+
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Label 
+            Text="Cadastro de eventos" 
+            Margin="30" 
+            FontSize="30"/>
+
+        <Label 
+            Text="Nome do evento:" 
+            Margin="10"/>
+        
+        <Entry x:Name="txt_evento_name"/>
+
+        <Label 
+            Text="Local do evento:" 
+            Margin="10"/>
+        
+        <Entry x:Name="txt_evento_local" />
+
+
+        <Frame Padding="10" Margin="10">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto"
+                     ColumnDefinitions="*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                          Text="Membros:" />
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                          TextColor="{StaticResource Primary}"
+                          Text="{Binding Value}"
+                          BindingContext="{x:Reference participantes}"/>
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                            x:Name="participantes"
+                            Minimum="0"
+                            Maximum="10"
+                            Increment="1" />
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Label Text="Valor por pessoa:"/>
+        <Entry x:Name="valor_pessoa" Placeholder="R$" PlaceholderColor="White"/>
+
+        <Frame Padding="10" Margin="10">
+            <VerticalStackLayout Spacing="10">
+
+                <Label Text="Período do evento"
+               TextTransform="Uppercase"
+               FontSize="Subtitle"
+               TextColor="white"/>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Check-in:" />
+                    <DatePicker x:Name="dtpck_checkin"
+                        DateSelected="dtpck_checkin_DateSelected"
+                        Format="dd/MM/yyyy" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Check-out:" />
+                    <DatePicker x:Name="dtpck_checkout"
+                        Format="dd/MM/yyyy" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Text="Enviar" Clicked="Button_Clicked" BackgroundColor="BlueViolet" TextColor="White"/>
+
+    </VerticalStackLayout>
+</ContentPage>
+    

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEventos.Views.Confirmacao"
+             Title="Confirmacao"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="DarkBlue">
+    <VerticalStackLayout>
+
+        <Label 
+            Text="{Binding nomeEvento}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"
+            TextColor="White"
+            Margin="30"
+            TextTransform="Uppercase" />
+
+        <Frame Padding="10" Margin="20" BackgroundColor="Transparent" BorderColor="White" >
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Participantes: "
+                        FontSize="20"
+                        Margin="5"/>
+                    <Label 
+                        Text="{Binding numeroParticipantes}" 
+                        FontSize="20"
+                        Margin="5"/>                    
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Valor: "
+                        FontSize="20"
+                        Margin="5"/>
+                    <Label 
+                        Text="{Binding total}"
+                        FontSize="20"
+                        Margin="5"/>                    
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Local: "
+                        FontSize="20"
+                        Margin="5"/>
+                    <Label 
+                        Text="{Binding localEvento}"
+                        FontSize="20"
+                        Margin="5"/>                    
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Data de inicio: "
+                        FontSize="20"
+                        Margin="5"/>                
+                    <Label 
+                        Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                        FontSize="20"
+                        Margin="5"/>                    
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Data final: "
+                        FontSize="20"
+                        Margin="5"/>
+                    <Label 
+                        Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                        FontSize="20"
+                        Margin="5"/>                    
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label 
+                        Text="Duração de dias: "
+                        FontSize="20"
+                        Margin="5"/>
+                    <Label 
+                        Text="{Binding duracao}"
+                        FontSize="20"
+                        Margin="5"/>                    
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar" Clicked="Button_Clicked" BackgroundColor="BlueViolet" TextColor="White" Margin="10"/>
+
+    </VerticalStackLayout>
+</ContentPage>
